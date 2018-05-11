@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 class Header extends Component {
 
   renderContent() {
+
     switch (this.props.auth) {
       case null:
       return 'Still deciding';
@@ -14,7 +15,7 @@ class Header extends Component {
   }
 
   render() {
-
+    console.log(this.props)
     return (
       <nav>
         <div className="nav-wrapper">
@@ -31,7 +32,7 @@ class Header extends Component {
   }
 }
 
-function mapStateToProps({auth}) {
+function mapStateToProps({ auth }) {
   return { auth };
 }
 
