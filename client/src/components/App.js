@@ -4,12 +4,11 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import Header from './Header';
 import Landing from './Landing';
-
-
-const DashBoard = () => <h2>Dashboard </h2>;
-const SurveyNew = () => <h2>surveyNew </h2>;
-
-
+import Invite from './Invite';
+import PerformPosts from './PerformPosts';
+import PerformPostsNew from './PerformPostsNew';
+import axios from 'axios';
+window.axios;
 class App extends Component {
   componentDidMount() {
     this.props.fetchUser();
@@ -18,13 +17,14 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div>
         <BrowserRouter>
           <div>
             <Header />
             <Route exact path="/" component={Landing} />
-            <Route exact path="/surveys" component={DashBoard} />
-            <Route path="/surveys/new" component={SurveyNew} />
+            <Route exact path="/surveys" component={Invite} />
+            <Route exact path="/performposts" component={PerformPosts} />
+            <Route path="/performposts/new"  component={PerformPostsNew}/>
           </div>
         </BrowserRouter>
       </div>
