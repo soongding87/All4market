@@ -31,7 +31,7 @@ class Header extends Component {
       <nav>
         <div className="nav-wrapper indigo darken-4">
           <Link
-            to={this.props.auth ? '/surveys' : '/'}
+            to='/'
             className="left brand-logo"
           >
             <i className="material-icons">music_video</i>

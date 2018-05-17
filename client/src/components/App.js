@@ -7,8 +7,8 @@ import Landing from './Landing';
 import Invite from './Invite';
 import PerformPosts from './PerformPosts';
 import PerformPostsNew from './PerformPostsNew';
-import axios from 'axios';
-window.axios;
+import PerformPostDetail from './PerformPostDetail';
+
 class App extends Component {
   componentDidMount() {
     this.props.fetchUser();
@@ -17,13 +17,14 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <BrowserRouter>
           <div>
             <Header />
             <Route exact path="/" component={Landing} />
             <Route exact path="/surveys" component={Invite} />
             <Route exact path="/performposts" component={PerformPosts} />
+            <Route path="/performposts/:id" component={PerformPostDetail} />
             <Route path="/performposts/new"  component={PerformPostsNew}/>
           </div>
         </BrowserRouter>

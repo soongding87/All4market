@@ -8,8 +8,13 @@ module.exports = app => {
     Post.find({}, (err,posts)=> {
       res.send(posts)
     })
+  });
 
+  app.get('/api/performposts/:id', (req, res) => {
 
+    Post.findOne({'_id': req.params.id}, (err,post)=> {
+      res.send(post)
+    })
   });
 
   app.post('/api/performposts', requireLogin,  async (req, res) => {

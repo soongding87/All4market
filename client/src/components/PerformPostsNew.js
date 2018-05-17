@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import { Link, Redirect } from 'react-router-dom';
+import {  Redirect } from 'react-router-dom';
 
 class PerformPosts extends Component {
   constructor(props) {
@@ -17,10 +17,14 @@ class PerformPosts extends Component {
     const title = event.target[0].value;
     const body = event.target[1].value;
     const imageURL = event.target[2].value;
+    const videoURL = event.target[3].value;
+
     const post = {
       title,
       body,
-      imageURL
+      imageURL,
+      videoURL
+
     };
 
     axios
@@ -60,6 +64,13 @@ class PerformPosts extends Component {
             <div className="input-field col s8">
               <input id="imageURL" type="text" name="imageURL" />
               <label>imageURL</label>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="input-field col s8">
+              <input id="videoURL" type="text" name="videoURL" />
+              <label>videoURL</label>
             </div>
           </div>
 
