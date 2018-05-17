@@ -28,6 +28,8 @@ module.exports = app => {
       _user: req.user.id,
       createAt: Date.now()
     });
+
+    
     post.save()
     res.send();
   });

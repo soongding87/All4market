@@ -19,6 +19,7 @@ class PerformPostDetail extends Component {
 
   renderPost(post) {
     const postDetailStyle = {
+      margin: '10px',
       display: 'flex',
       alignItems: 'center',
       flexDirection: 'column'
@@ -29,15 +30,14 @@ class PerformPostDetail extends Component {
         <div>
         <div className="postDetails" style={postDetailStyle}>
           <div className="img">
-            {' '}
-            <img src={post.imageURL} alt="no img" />{' '}
+            <img src={post.imageURL} alt="no img" />
           </div>
 
           <h2>{post.title}</h2>
           <p>{post.body} </p>
         </div>
-          <div class="video-container">
-<iframe  src={`//${post.videoURL}`} frameborder="1" allowfullscreen="true"></iframe>
+          <div className="video-container">
+<iframe title="video" src={`//${post.videoURL}`} frameBorder="1" ></iframe>
              </div>
 
         </div>

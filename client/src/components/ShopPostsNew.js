@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+import {  Redirect } from 'react-router-dom';
 
-class Invite extends Component {
+class ShopPostsNew extends Component {
   constructor(props) {
     super(props);
 
@@ -16,23 +16,26 @@ class Invite extends Component {
     event.preventDefault();
     const title = event.target[0].value;
     const body = event.target[1].value;
-    const recipients= event.target[2].value;
-    const survey = {
+    const imageURL = event.target[2].value;
+    const price = event.target[3].value;
+
+    const post = {
       title,
       body,
-      recipients
+      imageURL,
+      price
     };
 
     axios
-      .post('/api/surveys', survey)
-      .then(() => alert('mailer is sent'));
+      .post('/api/shopposts', post)
+      .then(() => this.setState({ redirect: true }));
   };
 
   render() {
     const { redirect } = this.state;
 
     if (redirect) {
-      return <Redirect to="/" />;
+      return <Redirect to="/shopposts" />;
     }
 
     return (
@@ -45,7 +48,7 @@ class Invite extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="input-field col s9">
+            <div className="input-field col s8">
               <textarea
                 id="body"
                 type="text"
@@ -58,10 +61,19 @@ class Invite extends Component {
 
           <div className="row">
             <div className="input-field col s8">
-              <input id="email" type="text" name="email" />
-              <label>email</label>
+              <input id="imageURL" type="text" name="imageURL" />
+              <label>imageURL</label>
             </div>
           </div>
+
+          <div className="row">
+            <div className="input-field col s8">
+              <input id="price" type="number" name="price" />
+              <label>price</label>
+            </div>
+          </div>
+
+
 
           <button className="btn waves-effect waves-light" type="submit">
             Submit
@@ -77,4 +89,4 @@ function mapStateToProps({ auth }) {
   return { auth };
 }
 
-export default connect(mapStateToProps)(Invite);
+export default connect(mapStateToProps)(ShopPostsNew);

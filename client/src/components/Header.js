@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Payments from './Payments';
 class Header extends Component {
+
+
   renderContent() {
     switch (this.props.auth) {
       case null:
@@ -37,14 +39,22 @@ class Header extends Component {
             <i className="material-icons">music_video</i>
             Buskers
           </Link>
-          <ul className="right">
+          <ul className="right hide-on-med-and-down">
             <li>
               <Link to="/performposts"> Busking list</Link>
             </li>
             <li>
-              <Link to="/surveys"> InviteFriend</Link>
+              <Link to="/shopposts"> Shop</Link>
             </li>
+
+
+            {/* <li>
+              <Link to="/surveys"> InviteFriend</Link>
+            </li> */}
             {this.renderContent()}
+            <li>
+              <Link to="/mypage"> Mypage</Link>
+            </li>
           </ul>
         </div>
       </nav>

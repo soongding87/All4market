@@ -2,34 +2,53 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import * as actions from '../actions';
 
-class PerformPosts extends Component {
+class ShopPosts extends Component {
   constructor() {
     super();
     this.state = {
-      posts: null
+      posts: null,
+      auth: null
     };
-    axios
-      .get('/api/performposts')
-      .then(res => this.setState({ posts: res.data }));
+
+
+    axios.get('/api/shopposts').then(res => this.setState({ posts: res.data }));
   }
+
+
+
+
+
+handleClick=(id,e,price)=>{
+  alert('You got it!')
+  const product ={ userid:this.props.auth._id, price }
+axios.post(`/api/shopposts/${id}`,product ).then(
+)
+
+}
 
   renderPosts(posts) {
     console.log(posts);
     if (posts) {
       return posts.map((post, i) => (
-        <div key={i} className="col m4">
+        <div key={i} className="col m4" >
           <div className="card medium">
             <div className="card-image">
               <img src={post.imageURL} alt=" No img" />
             </div>
             <div className="card-content">
               <h5> {post.title}</h5>
+              <p>{post.body}</p>
+              <h5> price: {post.price} </h5>
             </div>
             <div className="card-action">
-              <Link to={`/performposts/${post._id}`}>
-                Let's get some more details
-              </Link>
+              <button
+                className="waves-effect btn blue"
+                onClick={(e) => this.handleClick(post._id,e,post.price)}
+              >
+                  Buy it
+              </button>
             </div>
           </div>
         </div>
@@ -37,13 +56,16 @@ class PerformPosts extends Component {
     }
   }
 
+
+
+
   render() {
     return (
       <div>
         <div className="row">{this.renderPosts(this.state.posts)}</div>
-        <div />
+
         <div className="fixed-action-btn">
-          <Link to="/performposts/new" className="btn-floating btn-large blue">
+          <Link to="/shopposts/new" className="btn-floating btn-large blue">
             <i className="material-icons">add</i>
           </Link>
         </div>
@@ -56,4 +78,4 @@ function mapStateToProps({ auth }) {
   return { auth };
 }
 
-export default connect(mapStateToProps)(PerformPosts);
+export default connect(mapStateToProps,actions)(ShopPosts);

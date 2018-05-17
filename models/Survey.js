@@ -5,7 +5,7 @@ const surveySchema = new Schema({
   title: String,
   body: String,
   recipients: String,
-  _user: { type: Schema.Types.ObjectId, ref: 'User' },
+  _user: String,
   dateSent: Date,
 });
 

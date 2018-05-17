@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import {  Redirect } from 'react-router-dom';
 
-class PerformPosts extends Component {
+class PerformPostsNew extends Component {
   constructor(props) {
     super(props);
 
@@ -49,7 +49,7 @@ class PerformPosts extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="input-field col s9">
+            <div className="input-field col s8">
               <textarea
                 id="body"
                 type="text"
@@ -63,14 +63,15 @@ class PerformPosts extends Component {
           <div className="row">
             <div className="input-field col s8">
               <input id="imageURL" type="text" name="imageURL" />
-              <label>imageURL</label>
+              <label>image address</label>
             </div>
           </div>
 
           <div className="row">
             <div className="input-field col s8">
               <input id="videoURL" type="text" name="videoURL" />
-              <label>videoURL</label>
+              <label>video address</label>
+              <span className="helper-text" data-error="wrong" data-success="right">ex) www.youtube.com/embed/SFEWAF5</span>
             </div>
           </div>
 
@@ -88,4 +89,4 @@ function mapStateToProps({ auth }) {
   return { auth };
 }
 
-export default connect(mapStateToProps)(PerformPosts);
+export default connect(mapStateToProps)(PerformPostsNew);
