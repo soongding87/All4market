@@ -42,7 +42,7 @@ class PerformPosts extends Component {
       <div>
         <div className="row">{this.renderPosts(this.state.posts)}</div>
         <div />
-        <div className="fixed-action-btn">
+        <div className="fixed-action-btn large">
           <Link to="/performposts/new" className="btn-floating btn-large blue">
             <i className="material-icons">add</i>
           </Link>

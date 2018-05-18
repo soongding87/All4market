@@ -46,7 +46,9 @@ class Mypage extends Component {
 }
     return (
       <div>
-        <h3>My inventory</h3>
+        <h3 className="header center indigo-text text-lighten-2" >My page</h3>
+      <br/>
+        <h4 classname="header center blue-text text-lighten-2"> My inventory</h4>
         {this.renderPosts(this.state.posts)}
       </div>
 

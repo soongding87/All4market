@@ -22,7 +22,7 @@ class App extends Component {
   render() {
 
     return (
-      <div style={{background: 'linear-gradient(to bottom, #deefff 4%,#e6e1f2 99%)', height: '70vh'}}
+      <div style={{background: 'linear-gradient(to bottom, #deefff 4%,#e6e1f2 99%)', height: '90vh'}}
 >
         <BrowserRouter>
           <div>
